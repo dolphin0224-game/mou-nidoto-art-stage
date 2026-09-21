@@ -11,13 +11,13 @@
   <button class="icon" id="infoButton" aria-label="操作と試作について">?</button>
  </header>
  <div class="objective hud" hidden><span class="diamond">◇</span><span id="objective">夜の宿を確かめる</span><span id="count">0 / 3</span></div>
- <button class="hotspot hud" id="talk" hidden><kbd>E</kbd> 陽菜と話す</button>
+ <button class="hotspot hud" id="talk" hidden><kbd>E</kbd> 仮キャラと話す</button>
  <div class="inspect hud" hidden><button data-action="flower">◇ 白い花</button><button data-action="lamp">◇ 宿の灯り</button></div>
  <section id="dialogue" hidden aria-live="polite"><small id="speaker"></small><p id="line"></p><button id="closeDialogue">閉じる <kbd>Esc</kbd></button></section>
- <footer class="hud" hidden><div class="hints"><kbd>W A S D</kbd> 移動 <span>·</span> 右ドラッグ / Q・F 見回す <span>·</span> <kbd>R</kbd> 元の位置</div><div class="tools"><button id="referenceButton">参照画像</button><button id="motionButton" aria-pressed="true">風 ON</button><button id="soundButton" aria-pressed="false">音 OFF</button><button id="fullButton" aria-label="全画面">⛶</button></div></footer>
+ <footer class="hud" hidden><div class="hints"><kbd>W A S D</kbd> 移動 <span>·</span> 右ドラッグ / Q・F 見回す <span>·</span> <kbd>R</kbd> 元の位置</div><div class="tools"><button id="referenceButton">参照画像</button><button id="motionButton" aria-pressed="true">動き ON</button><button id="soundButton" aria-pressed="false">音 OFF</button><button id="fullButton" aria-label="全画面">⛶</button></div></footer>
  <div id="touchPad" class="hud" hidden><button data-move="left" aria-label="左へ">←</button><button data-move="forward" aria-label="前へ">↑</button><button data-move="back" aria-label="後ろへ">↓</button><button data-move="right" aria-label="右へ">→</button></div>
  <div id="referenceLabel" hidden>参照画像 · もう一度押すとUnityの描画へ戻ります</div>
  <div id="notice" role="status"></div>
- <section id="info" hidden><button id="closeInfo" aria-label="閉じる">×</button><div class="eyebrow">夜の宿 / ART STUDY</div><h2>この景色を、少し歩く。</h2><p>歩行比較版 v5。幅3.3m・前後3.85mの範囲をWASDで移動できます。右ドラッグ、またはQ・Fで左右を見回せます。Rで最初の構図へ戻れます。</p><p>03・04・05で画風を切り替え。「＋厚塗り」は追加で提示した案です。陽菜・白い花・宿の灯りを調べられます。台詞はこの試作専用です。</p><details><summary>表現の仕組みと今回の範囲</summary><p>画像の色を、水平な床・斜めの宿壁・遠景からなる立体舞台へ投影し直しました。画面外には路面と宿の側面を追加しています。視点移動で人物と背景の位置関係が変化します。人物は固定向きの切り抜き面で、全周モデルや歩行・表情のリグは未実装です。斜めからは投影の伸びや補完面の継ぎ目が残るため、その崩れ方も含めて比較する試作です。</p><p>今回はGaussian Splatや自由歩行の完成版ではなく、画像から作る3D投影表現の検証です。比較用の元画像、Unityプロジェクトと実装記録は別途提供します。</p><button id="depthButton">奥行きの表示を切り替える</button></details><button class="primary" id="startButton">景色へ戻る</button></section>
-</main><script src="Build/Web.loader.js?v=5"></script><script src="stage.js?v=5"></script>
+ <section id="info" hidden><button id="closeInfo" aria-label="閉じる">×</button><div class="eyebrow">夜の宿 / ART STUDY</div><h2>この景色を、少し歩く。</h2><p>立体モデル比較版 v6。WASDで中庭を移動し、キャラクターを横や後ろから見られます。右ドラッグ、またはQ・Fで左右を見回せます。Rで最初の構図へ戻れます。</p><p>03・04・05で画風を切り替え。「＋厚塗り」は追加で提示した案です。陽菜・白い花・宿の灯りを調べられます。台詞はこの試作専用です。</p><details><summary>表現の仕組みと今回の範囲</summary><p>床・柱・階段・縁側・障子・屋根を独立した立体として組み、各面へ石・木・紙のテクスチャ領域を貼っています。遠景のみ絵の背景です。視点移動で人物と背景の位置関係が変化します。人物はVRoidの旧CC0サンプルを使った全周3Dモデルです。呼吸・首の動き・瞬きを付けています。栞・陽菜の完成モデルではありません。動きボタンで待機モーションも停止できます。</p><p>モデル出典：pixiv / VRoid Project「β Ver AvatarSample_1」。配布条件はモデルごとに確認しています。詳しくは同梱の<a href="THIRD_PARTY.md" target="_blank" rel="noopener">素材出典・利用条件</a>をご覧ください。</p><button id="depthButton">奥行きの表示を切り替える</button></details><button class="primary" id="startButton">景色へ戻る</button></section>
+</main><script src="Build/Web.loader.js?v=6"></script><script src="stage.js?v=6"></script>
 </body></html>
