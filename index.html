@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#101217"><link rel="icon" href="data:,"><title>もう二度と — 夜の宿・画風試作</title><link rel="stylesheet" href="stage.css"></head>
+<body>
+<main id="frame">
+ <canvas id="unity" tabindex="0" aria-label="夜の宿を探索するUnity画面"></canvas>
+ <img id="reference" alt="比較用の元画像" hidden>
+ <div id="loading"><div class="eyebrow">もう二度と</div><h1>夜の宿</h1><p>一枚の景色、その奥へ。</p><div class="track"><i id="progress"></i></div><small id="loadMessage">舞台を準備しています</small></div>
+ <header class="hud" hidden>
+  <div class="brand"><span>もう二度と</span><small>夜の宿 · 画風試作</small></div>
+  <nav aria-label="画風を選ぶ"><button data-style="0" class="selected">03 <span>ドット</span></button><button data-style="1">04 <span>月夜</span></button><button data-style="2">05 <span>鉛筆</span></button><button data-style="3">＋ <span>厚塗り</span></button></nav>
+  <button class="icon" id="infoButton" aria-label="操作と試作について">?</button>
+ </header>
+ <div class="objective hud" hidden><span class="diamond">◇</span><span id="objective">夜の宿を確かめる</span><span id="count">0 / 3</span></div>
+ <button class="hotspot hud" id="talk" hidden><kbd>E</kbd> 陽菜と話す</button>
+ <div class="inspect hud" hidden><button data-action="flower">◇ 白い花</button><button data-action="lamp">◇ 宿の灯り</button></div>
+ <section id="dialogue" hidden aria-live="polite"><small id="speaker"></small><p id="line"></p><button id="closeDialogue">閉じる <kbd>Esc</kbd></button></section>
+ <footer class="hud" hidden><div class="hints"><kbd>W A S D</kbd> 移動 <span>·</span> 右ドラッグ 見回す <span>·</span> <kbd>R</kbd> 元の位置</div><div class="tools"><button id="referenceButton">参照画像</button><button id="motionButton" aria-pressed="true">風 ON</button><button id="soundButton" aria-pressed="false">音 OFF</button><button id="fullButton" aria-label="全画面">⛶</button></div></footer>
+ <div id="touchPad" class="hud" hidden><button data-move="left" aria-label="左へ">←</button><button data-move="forward" aria-label="前へ">↑</button><button data-move="back" aria-label="後ろへ">↓</button><button data-move="right" aria-label="右へ">→</button></div>
+ <div id="referenceLabel" hidden>参照画像 · もう一度押すとUnityの描画へ戻ります</div>
+ <div id="notice" role="status"></div>
+ <section id="info" hidden><button id="closeInfo" aria-label="閉じる">×</button><div class="eyebrow">夜の宿 / ART STUDY</div><h2>この景色を、少し歩く。</h2><p>参照の質感を残した、視点限定の立体舞台です。WASDで前後左右へ移動し、右ドラッグで見回せます。Rで最初の構図へ戻れます。</p><p>03・04・05で画風を切り替え。「＋厚塗り」は追加で提示した案です。陽菜・白い花・宿の灯りを調べられます。台詞はこの試作専用です。</p><details><summary>表現の仕組みと今回の範囲</summary><p>画像から推定した奥行きをUnityのメッシュに変換し、元の色をUVに投影しています。単一平面への画像表示ではありません。人物は背景とともに奥行きのある静止形状で、歩行・表情のリグは未実装。隠れた面がないため、移動範囲を限定しています。</p><p>今回はGaussian Splatや自由歩行の完成版ではなく、画像から作る3D投影表現の検証です。比較用の元画像、Unityプロジェクトと実装記録は別途提供します。</p><button id="depthButton">奥行きの表示を切り替える</button></details><button class="primary" id="startButton">景色へ戻る</button></section>
+</main><script src="Build/Web.loader.js"></script><script src="stage.js"></script>
+</body></html>
