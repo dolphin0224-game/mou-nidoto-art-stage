@@ -19,7 +19,7 @@ window.onStageState=s=>{
  window.stageState=s;document.querySelectorAll('[data-style]').forEach(b=>b.classList.toggle('selected',Number(b.dataset.style)===s.style));
  $('#motionButton').textContent=s.atmosphere?'動き ON':'動き OFF';$('#motionButton').setAttribute('aria-pressed',s.atmosphere);
  $('#talk').style.left=(s.talkX*100)+'%';$('#talk').style.top=(s.talkY*100)+'%';$('#talk').style.visibility=s.talkVisible?'visible':'hidden';
- $('#notice').textContent=`立体モデル版 v6 · X ${s.x.toFixed(1)} / Z ${s.z.toFixed(1)} m · Rで戻る`;
+ $('#notice').textContent=`立体モデル版 v7 · X ${s.x.toFixed(1)} / Z ${s.z.toFixed(1)} m · Rで戻る`;
  const count=[1,2,4].filter(n=>s.discoveries&n).length;$('#count').textContent=count+' / 3';$('#objective').textContent=count===3?'今夜の景色を手帳に残した':'夜の宿を確かめる';
  if(!$('#loading').hidden){$('#loading').hidden=true;document.querySelectorAll('.hud').forEach(e=>e.hidden=false);canvas.focus();if(matchMedia('(prefers-reduced-motion: reduce)').matches)command('motion');}
 };
@@ -27,5 +27,5 @@ $('#soundButton').onclick=async()=>{
  if(!audio){audio=new AudioContext();gain=audio.createGain();gain.gain.value=0;gain.connect(audio.destination);const buffer=audio.createBuffer(1,audio.sampleRate*4,audio.sampleRate),data=buffer.getChannelData(0);let last=0;for(let i=0;i<data.length;i++){last=(last+(Math.random()*2-1)*.015)/1.015;data[i]=last}const n=audio.createBufferSource();n.buffer=buffer;n.loop=true;const filter=audio.createBiquadFilter();filter.type='lowpass';filter.frequency.value=480;n.connect(filter);filter.connect(gain);n.start();}await audio.resume();sound=!sound;gain.gain.setTargetAtTime(sound?.2:0,audio.currentTime,.5);$('#soundButton').textContent=sound?'音 ON':'音 OFF';$('#soundButton').setAttribute('aria-pressed',sound);
 };
 if(typeof createUnityInstance!=='function'){$('#loadMessage').textContent='読み込みファイルが見つかりません。ページを再読み込みしてください。'}else{
- createUnityInstance(canvas,{dataUrl:'Build/Web.data.unityweb?v=6',frameworkUrl:'Build/Web.framework.js.unityweb?v=6',codeUrl:'Build/Web.wasm.unityweb?v=6',streamingAssetsUrl:'StreamingAssets',companyName:'Mou Nidoto',productName:'Inn Art Stage',productVersion:'1.0',matchWebGLToCanvasSize:true,devicePixelRatio:Math.min(window.devicePixelRatio||1,1.5)},p=>{$('#progress').style.width=(p*100)+'%';$('#loadMessage').textContent='舞台を読み込み中 '+Math.round(p*100)+'%'}).then(u=>{instance=u;window.artUnity=u;canvas.focus()}).catch(e=>{$('#loadMessage').textContent='起動できませんでした。再読み込み、または別のブラウザーでお試しください。';console.error(e)});
+ createUnityInstance(canvas,{dataUrl:'Build/Web.data.unityweb?v=7',frameworkUrl:'Build/Web.framework.js.unityweb?v=7',codeUrl:'Build/Web.wasm.unityweb?v=7',streamingAssetsUrl:'StreamingAssets',companyName:'Mou Nidoto',productName:'Inn Art Stage',productVersion:'1.0',matchWebGLToCanvasSize:true,devicePixelRatio:Math.min(window.devicePixelRatio||1,1.5)},p=>{$('#progress').style.width=(p*100)+'%';$('#loadMessage').textContent='舞台を読み込み中 '+Math.round(p*100)+'%'}).then(u=>{instance=u;window.artUnity=u;canvas.focus()}).catch(e=>{$('#loadMessage').textContent='起動できませんでした。再読み込み、または別のブラウザーでお試しください。';console.error(e)});
 }
